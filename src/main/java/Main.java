@@ -1,20 +1,21 @@
 public class Main {
+    public static void main(String[] args) {
 
-    public Main(int lifetime) throws InterruptedException {
-        A a = new A();
-        String secondary = "Secondary!";
-        There1 t1 = new There1(a);
-        There5 t5 = new There5(a, secondary);
-        t1.start();
-        t5.start();
 
-        Thread.sleep(lifetime * 1000L);
-        t1.interrupt();
-        t5.interrupt();
+        Timer timer = new Timer(1);
+        Timer timer5 = new Timer(5);
+        Timer timer7 = new Timer(7);
+        TimeReader timeReader = new TimeReader(timer);
+        TimeReader timeReader5 = new TimeReader(timer5);
+        TimeReader timeReader7 = new TimeReader(timer7);
 
-    }
+        timer.start();
+        timer5.start();
+        timer7.start();
+        timeReader.start();
+        timeReader5.start();
+        timeReader7.start();
 
-    public static void main(String[] args) throws InterruptedException {
-        new Main(15);
+
     }
 }
